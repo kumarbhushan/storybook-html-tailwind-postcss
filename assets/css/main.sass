@@ -1,0 +1,25 @@
+@import './themes'
+@import './header'
+
+/* purgecss start ignore */
+html, body
+	height: 100%
+	margin: 0
+
+body
+	@apply text-active bg-cell-background text-active
+
+	&::-webkit-scrollbar
+		&:start
+			margin-top: 50px
+
+a
+	@apply text-key
+	&:focus
+		@apply outline-none
+
+@media (hover: hover)
+	a:hover
+		@apply text-key-highlight
+
+/* purgecss end ignore */

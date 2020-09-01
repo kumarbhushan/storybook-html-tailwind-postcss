@@ -1,0 +1,34 @@
+
+header
+	@apply bg-materials-fixedfloating h-14 flex w-full fixed top-0 left-0 z-50
+
+	& .logo
+		@apply h-14 w-52 flex-none
+	
+	& nav
+		@apply w-full p-4
+		& a
+			@apply text-base text-key inline-block mr-15 w-auto
+			font-size: 0
+			&.active
+				@apply text-key
+				& i
+					@apply text-key
+			& i
+				@apply text-base text-dim
+
+			@screen tablet
+				@apply text-base text-active mr-10
+				& i
+					@apply text-base text-active
+
+			&:last-child
+				@apply mr-0
+			&:hover
+				@apply text-key
+				& i
+					@apply text-key
+
+
+	& div
+		@apply w-48 p-4 text-right text-key
