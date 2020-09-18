@@ -16,28 +16,25 @@ function rules(themePaths, selectMode, selectTarget) {
             ],
         },
         {
-            test: /\.(sa|sc|c)ss$/,
+            // Extract any SCSS content and minimize
+            test: /\.scss$/,
             use: [
+                MiniCssExtractPlugin.loader,
+                { loader: 'css-loader', options: { importLoaders: 1 } },
                 {
-                    loader: 'style-loader',
-                    options: {
-                        hmr: true
-                    }
+                    loader: 'postcss-loader'
                 },
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: true,
-                        importLoaders: 1,
-                        localIdentName: '[name]__[local]___[hash:base64:5]',
-                    },
-                },
-                'to-string-loader',
-                'postcss-loader',
-                'sass-loader',
-                MiniCssExtractPlugin.loader
-            ],
-            include: path.resolve(__dirname, "..", "assets/css")
+
+            ]
+        },
+        {
+            // Extract any CSS content and minimize
+            test: /\.css$/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                { loader: 'css-loader', options: { importLoaders: 1 } },
+                { loader: 'postcss-loader' }
+            ]
         },
         {
             test: /\.(jpe?g|png|svg|gif)$/,
