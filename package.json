@@ -5,7 +5,7 @@
   "main": "postcss.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "node-sass assets/css/main.sass  assets/css/main.css && start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "keywords": [],
@@ -27,7 +27,6 @@
     "mini-css-extract-plugin": "^0.11.0",
     "node-sass": "^4.14.1",
     "postcss": "^8.0.3",
-    "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-sass-loader": "^1.1.0",
     "postscss": "^1.6.0",

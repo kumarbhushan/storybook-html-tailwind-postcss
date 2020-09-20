@@ -1,22 +1,12 @@
-const { resolve } = require('path');
+const path = require('path');
 
-module.exports = {
-    webpackFinal: (defaultConfig) => {
-        const rulesFn = require('../.webpack/rules').rules;
-        const rules = rulesFn(
-            {
-                outputLegacy: '',
-                generated: '',
-                output: '',
-                src: '',
-            },
-            input => input['development'],
-            input => input['modern'],
-        );
-        delete rules[1].include;
-        defaultConfig.module.rules = rules;
-        defaultConfig.resolve.extensions = ['.ts', '.tsx', '.js'];
+// Export a function. Accept the base config as the only param.
+module.exports = async ({ config, mode }) => {
+  config.module.rules[4]={
+    test: /\.s[ca]ss$/,
+    use: ['style-loader', 'css-loader', 'postcss-loader','sass-loader'],
+  };
 
-        return defaultConfig
-    }
-}
+  // Return the altered config
+  return config;
+};
